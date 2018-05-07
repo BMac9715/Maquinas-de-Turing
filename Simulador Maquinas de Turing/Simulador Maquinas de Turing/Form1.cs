@@ -16,5 +16,15 @@ namespace Simulador_Maquinas_de_Turing
         {
             InitializeComponent();
         }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
