@@ -16,6 +16,9 @@ namespace Simulador_Maquinas_de_Turing
         public Suma sum;
         public Resta resta;
 
+        private bool finalizado;
+        private bool error;
+
         public MaquinaTuring()
         {
             main = new Cabezal();
@@ -40,6 +43,9 @@ namespace Simulador_Maquinas_de_Turing
             mult = new Multiplicacion(new string[,] { });
             sum = new Suma(new string[,] { });
             resta = new Resta(new string[,] { });
+
+            finalizado = false;
+            error = false;
         }
 
         public int CalcularCadena(string cadena, int maquina)
@@ -57,30 +63,31 @@ namespace Simulador_Maquinas_de_Turing
 
         public string PrimerMovimiento(string cadena, int maquina, int pos)
         {
-            int i = pos;
-            p.Cabezal.Posicion = i;
-            List<char> cinta = cadena.ToCharArray().ToList();
-
-            //Movimiento Inicial          
-            p.Movimiento(cinta[i].ToString(), 0);
-            cinta[i] = p.Cabezal.NuevoCaracter;
-            i++;
-            p.Cabezal.NuevoCaracter = cinta[i];
-            p.Cabezal.Posicion = i;
-
-            //Escribir la cadena de salida
-            string result = string.Empty;
-
-            foreach(var element in cinta)
+            switch (maquina)
             {
-                result += element.ToString();
+                case 1: return PrimerMovimientoPalindromo(cadena, pos);
+                case 2: return PrimerMovimientoCopia(cadena, pos);
+                case 3: return PrimerMovimientoMult(cadena, pos);
+                case 4: return PrimerMovimientoSum(cadena, pos);
+                case 5: return PrimerMovimientoResta(cadena, pos);
+                default: return string.Empty;
             }
-
-            return result;
         }
 
         public string Movimiento(string cadena, int maquina, int pos)
         {
+            switch (maquina)
+            {
+                case 1: return MovimientoPalindromo(cadena, pos);
+                case 2: return MovimientoCopia(cadena, pos);
+                case 3: return MovimientoMult(cadena, pos);
+                case 4: return MovimientoSum(cadena, pos);
+                case 5: return MovimientoResta(cadena, pos);
+                default: return string.Empty;
+            }          
+        }
+
+        private string MovimientoPalindromo(string cadena, int pos){
             int i = pos;
             p.Cabezal.Posicion = i;
             List<char> cinta = cadena.ToCharArray().ToList();
@@ -122,6 +129,365 @@ namespace Simulador_Maquinas_de_Turing
             {
                 result += element.ToString();
             }
+
+            //asignación de cabezal
+            this.main = p.Cabezal;
+            this.finalizado = p.Finalizado;
+            this.error = p.Error;
+
+            return result;
+        }
+
+        private string MovimientoCopia(string cadena, int pos)
+        {
+            int i = pos;
+            copy.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            copy.Cabezal.NuevoCaracter = cinta[i];
+            copy.Cabezal.Posicion = i;
+            copy.Movimiento(cinta[i].ToString(), copy.Cabezal.Estado);
+            cinta[i] = copy.Cabezal.NuevoCaracter;
+
+            //Movimiento del cabezal
+            if (copy.Cabezal.Direccion == 0)
+            {
+                if (i == 0)
+                {
+                    cinta.Insert(0, 'β');
+                }
+                else
+                {
+                    i--;
+                    copy.Cabezal.Posicion = i;
+                }
+            }
+
+            if (copy.Cabezal.Direccion == 1)
+            {
+                if (i == cinta.Count - 1)
+                {
+                    cinta.Add('β');
+                }
+
+                i++;
+                copy.Cabezal.Posicion = i;
+            }
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Asignación de Cabezales
+            this.main = copy.Cabezal;
+
+            this.finalizado = copy.Finalizado;
+            this.error = copy.Error;
+
+            return result;
+        }
+
+        private string MovimientoMult(string cadena, int pos)
+        {
+            int i = pos;
+            mult.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            mult.Cabezal.NuevoCaracter = cinta[i];
+            mult.Cabezal.Posicion = i;
+            mult.Movimiento(cinta[i].ToString(), mult.Cabezal.Estado);
+            cinta[i] = mult.Cabezal.NuevoCaracter;
+
+            //Movimiento del cabezal
+            if (mult.Cabezal.Direccion == 0)
+            {
+                if (i == 0)
+                {
+                    cinta.Insert(0, 'β');
+                }
+                else
+                {
+                    i--;
+                    mult.Cabezal.Posicion = i;
+                }
+            }
+
+            if (mult.Cabezal.Direccion == 1)
+            {
+                if (i == cinta.Count - 1)
+                {
+                    cinta.Add('β');
+                }
+
+                i++;
+                mult.Cabezal.Posicion = i;
+            }
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Asignación de Cabezales
+            this.main = mult.Cabezal;
+
+            this.finalizado = mult.Finalizado;
+            this.error = mult.Error;
+
+            return result;
+        }
+
+        private string MovimientoSum(string cadena, int pos)
+        {
+            int i = pos;
+            sum.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            sum.Cabezal.NuevoCaracter = cinta[i];
+            sum.Cabezal.Posicion = i;
+            sum.Movimiento(cinta[i].ToString(), sum.Cabezal.Estado);
+            cinta[i] = sum.Cabezal.NuevoCaracter;
+
+            //Movimiento del cabezal
+            if (sum.Cabezal.Direccion == 0)
+            {
+                if (i == 0)
+                {
+                    cinta.Insert(0, 'β');
+                }
+                else
+                {
+                    i--;
+                    sum.Cabezal.Posicion = i;
+                }
+            }
+
+            if (sum.Cabezal.Direccion == 1)
+            {
+                if (i == cinta.Count - 1)
+                {
+                    cinta.Add('β');
+                }
+
+                i++;
+                sum.Cabezal.Posicion = i;
+            }
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Asignación de Cabezales
+            this.main = sum.Cabezal;
+
+            this.finalizado = sum.Finalizado;
+            this.error = sum.Error;
+
+            return result;
+        }
+
+        private string MovimientoResta(string cadena, int pos)
+        {
+            int i = pos;
+            resta.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            resta.Cabezal.NuevoCaracter = cinta[i];
+            resta.Cabezal.Posicion = i;
+            resta.Movimiento(cinta[i].ToString(), resta.Cabezal.Estado);
+            cinta[i] = resta.Cabezal.NuevoCaracter;
+
+            //Movimiento del cabezal
+            if (resta.Cabezal.Direccion == 0)
+            {
+                if (i == 0)
+                {
+                    cinta.Insert(0, 'β');
+                }
+                else
+                {
+                    i--;
+                    resta.Cabezal.Posicion = i;
+                }
+            }
+
+            if (resta.Cabezal.Direccion == 1)
+            {
+                if (i == cinta.Count - 1)
+                {
+                    cinta.Add('β');
+                }
+
+                i++;
+                resta.Cabezal.Posicion = i;
+            }
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Asignación de Cabezales
+            this.main = resta.Cabezal;
+
+            this.finalizado = resta.Finalizado;
+            this.error = resta.Error;
+
+            return result;
+        }
+
+        private string PrimerMovimientoPalindromo(string cadena, int pos)
+        {
+            int i = pos;
+            p.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            p.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = p.Cabezal.NuevoCaracter;
+            i++;
+            p.Cabezal.NuevoCaracter = cinta[i];
+            p.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Alieneación de cabezal
+            this.main = p.Cabezal;
+            this.finalizado = p.Finalizado;
+            this.error = p.Error;
+
+            return result;
+        }
+
+        private string PrimerMovimientoCopia(string cadena, int pos)
+        {
+            int i = pos;
+            copy.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            copy.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = copy.Cabezal.NuevoCaracter;
+            i++;
+            copy.Cabezal.NuevoCaracter = cinta[i];
+            copy.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            //Alineacion de cabezal
+            this.main = copy.Cabezal;
+            this.finalizado = copy.Finalizado;
+            this.error = copy.Error;
+
+            return result;
+        }
+
+        private string PrimerMovimientoMult(string cadena, int pos)
+        {
+            int i = pos;
+            mult.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            mult.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = mult.Cabezal.NuevoCaracter;
+            i++;
+            mult.Cabezal.NuevoCaracter = cinta[i];
+            mult.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            this.main = mult.Cabezal;
+            this.finalizado = mult.Finalizado;
+            this.error = mult.Error;
+
+            return result;
+        }
+
+        private string PrimerMovimientoSum(string cadena, int pos)
+        {
+            int i = pos;
+            sum.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            sum.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = sum.Cabezal.NuevoCaracter;
+            i++;
+            sum.Cabezal.NuevoCaracter = cinta[i];
+            sum.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            this.main = sum.Cabezal;
+            this.finalizado = sum.Finalizado;
+            this.error = sum.Error;
+
+            return result;
+        }
+
+        private string PrimerMovimientoResta(string cadena, int pos)
+        {
+            int i = pos;
+            resta.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            resta.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = resta.Cabezal.NuevoCaracter;
+            i++;
+            resta.Cabezal.NuevoCaracter = cinta[i];
+            resta.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            this.main = resta.Cabezal;
+            this.finalizado = resta.Finalizado;
+            this.error = resta.Finalizado;
 
             return result;
         }
@@ -179,6 +545,7 @@ namespace Simulador_Maquinas_de_Turing
                 result += element.ToString();
             }
             */
+            p.Finalizado = false;
 
             return cinta.Count;
         }
@@ -202,5 +569,9 @@ namespace Simulador_Maquinas_de_Turing
         {
             return 0;
         }
+
+
+        public bool Finalizado { get => finalizado; set => finalizado = value; }
+        public bool Error { get => error; set => error = value; }
     }
 }

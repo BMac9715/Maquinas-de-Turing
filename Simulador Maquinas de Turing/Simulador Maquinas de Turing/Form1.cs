@@ -18,7 +18,6 @@ namespace Simulador_Maquinas_de_Turing
         int inicio;
         int fin;
         int maquina;
-        string cadenaInicial;
         string cinta;
         bool primero;
 
@@ -55,7 +54,6 @@ namespace Simulador_Maquinas_de_Turing
         private void DeshabilitarBotones()
         {
             btnRun.Enabled = false;
-            btnPausa.Enabled = false;
             btnReiniciar.Enabled = false;
             btnPaso.Enabled = false;
         }
@@ -115,8 +113,8 @@ namespace Simulador_Maquinas_de_Turing
             if (cadena != "")
             {
                 int longitud = maquinas.CalcularCadena(cadena, maquina);
-                maquinas.p.Error = false;
-                maquinas.p.Finalizado = false;
+                maquinas.Error = false;
+                maquinas.Finalizado = false;
 
                 if (cadena.Length <= 20)
                 {
@@ -176,18 +174,19 @@ namespace Simulador_Maquinas_de_Turing
             int velocidad = trackBar1.Value;
             switch (velocidad)
             {
-                case 0: timerEjecucion.Interval = 2500; break;
-                case 1: timerEjecucion.Interval = 2000; break;
-                case 2: timerEjecucion.Interval = 1500; break;
-                case 3: timerEjecucion.Interval = 1000; break;
-                case 4: timerEjecucion.Interval = 500; break;
+                case 0: timerEjecucion.Interval = 1500; break;
+                case 1: timerEjecucion.Interval = 1250; break;
+                case 2: timerEjecucion.Interval = 1000; break;
+                case 3: timerEjecucion.Interval = 500; break;
+                case 4: timerEjecucion.Interval = 250; break;
             }
 
             timerEjecucion.Start();
 
             btnRun.Enabled = false;
-            btnPausa.Enabled = true;
             btnPaso.Enabled = false;
+            btnIngresar.Enabled = false;
+            txtCadena.Enabled = false;
         }
 
         private void timerEjecucion_Tick(object sender, EventArgs e)
@@ -196,9 +195,9 @@ namespace Simulador_Maquinas_de_Turing
             {
                 cinta = maquinas.PrimerMovimiento(cinta, maquina, posicionCabezal);
                 PintarCinta(cinta);
-                posicionCabezal = maquinas.p.Cabezal.Posicion;
-                MoverCabezal(maquinas.p.Cabezal.Direccion);
-                PintarEstado(maquinas.p.Cabezal.Estado.ToString());
+                posicionCabezal = maquinas.main.Posicion;
+                MoverCabezal(maquinas.main.Direccion);
+                PintarEstado(maquinas.main.Estado.ToString());
 
                 primero = false;
                 pasos++;
@@ -208,14 +207,14 @@ namespace Simulador_Maquinas_de_Turing
             {
                 cinta = maquinas.Movimiento(cinta, maquina, posicionCabezal);
                 PintarCinta(cinta);
-                posicionCabezal = maquinas.p.Cabezal.Posicion;
-                MoverCabezal(maquinas.p.Cabezal.Direccion);
-                PintarEstado(maquinas.p.Cabezal.Estado.ToString()); 
+                posicionCabezal = maquinas.main.Posicion;
+                MoverCabezal(maquinas.main.Direccion);
+                PintarEstado(maquinas.main.Estado.ToString()); 
                 pasos++;
                 lblNPasos.Text = pasos.ToString();
             }
 
-            if (maquinas.p.Finalizado == true)
+            if (maquinas.Finalizado == true)
             {
                 timerEjecucion.Stop();
                 btnReiniciar.Enabled = true;
@@ -228,7 +227,7 @@ namespace Simulador_Maquinas_de_Turing
 
             }
 
-            if (maquinas.p.Error == true)
+            if (maquinas.Error == true)
             {
                 timerEjecucion.Stop();
                 btnReiniciar.Enabled = true;
@@ -251,9 +250,9 @@ namespace Simulador_Maquinas_de_Turing
             {
                 cinta = maquinas.PrimerMovimiento(cinta, maquina, posicionCabezal);
                 PintarCinta(cinta);
-                posicionCabezal = maquinas.p.Cabezal.Posicion;
-                MoverCabezal(maquinas.p.Cabezal.Direccion);
-                PintarEstado(maquinas.p.Cabezal.Estado.ToString());
+                posicionCabezal = maquinas.main.Posicion;
+                MoverCabezal(maquinas.main.Direccion);
+                PintarEstado(maquinas.main.Estado.ToString());
 
                 primero = false;
                 pasos++;
@@ -263,15 +262,15 @@ namespace Simulador_Maquinas_de_Turing
             {
                 cinta = maquinas.Movimiento(cinta, maquina, posicionCabezal);
                 PintarCinta(cinta);
-                posicionCabezal = maquinas.p.Cabezal.Posicion;
-                MoverCabezal(maquinas.p.Cabezal.Direccion);
-                PintarEstado(maquinas.p.Cabezal.Estado.ToString());
+                posicionCabezal = maquinas.main.Posicion;
+                MoverCabezal(maquinas.main.Direccion);
+                PintarEstado(maquinas.main.Estado.ToString());
 
                 pasos++;
                 lblNPasos.Text = pasos.ToString();
             }
 
-            if (maquinas.p.Finalizado == true)
+            if (maquinas.Finalizado == true)
             {
                 btnPaso.Enabled = false;
                 btnReiniciar.Enabled = true;
@@ -284,7 +283,7 @@ namespace Simulador_Maquinas_de_Turing
 
             }
 
-            if (maquinas.p.Error == true)
+            if (maquinas.Error == true)
             {
                 btnPaso.Enabled = false;
                 btnReiniciar.Enabled = true;
@@ -295,6 +294,24 @@ namespace Simulador_Maquinas_de_Turing
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            DeshabilitarBotones();
+            btnIngresar.Enabled = true;
+            txtCadena.Text = string.Empty;
+            txtCadena.Enabled = true;
+            IniciarCinta();
+            pBAceptacion.BackColor = Color.Empty;
+            pBCabezal.Location = new Point(22, pBCabezal.Location.Y);
+            dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Empty;
+            pasos = 0;
+            lblNPasos.Text = pasos.ToString();
+            lblAceptacion.Visible = false;
+            PintarEstado("0");
+            maquinas = new MaquinaTuring();
+            cinta = string.Empty;
         }
     }
 }

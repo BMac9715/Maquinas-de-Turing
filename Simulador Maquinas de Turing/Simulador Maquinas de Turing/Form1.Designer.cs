@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gBControl = new System.Windows.Forms.GroupBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblFast = new System.Windows.Forms.Label();
@@ -40,7 +40,6 @@
             this.btnRun = new System.Windows.Forms.Button();
             this.lblEntrada = new System.Windows.Forms.Label();
             this.txtCadena = new System.Windows.Forms.TextBox();
-            this.btnPausa = new System.Windows.Forms.Button();
             this.btnPaso = new System.Windows.Forms.Button();
             this.gBInformacion = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -108,7 +107,6 @@
             this.gBControl.Controls.Add(this.btnRun);
             this.gBControl.Controls.Add(this.lblEntrada);
             this.gBControl.Controls.Add(this.txtCadena);
-            this.gBControl.Controls.Add(this.btnPausa);
             this.gBControl.Controls.Add(this.btnPaso);
             this.gBControl.Location = new System.Drawing.Point(537, 403);
             this.gBControl.Name = "gBControl";
@@ -153,6 +151,7 @@
             this.btnReiniciar.TabIndex = 8;
             this.btnReiniciar.Text = "Reset";
             this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // trackBar1
             // 
@@ -197,15 +196,6 @@
             this.txtCadena.Name = "txtCadena";
             this.txtCadena.Size = new System.Drawing.Size(177, 20);
             this.txtCadena.TabIndex = 5;
-            // 
-            // btnPausa
-            // 
-            this.btnPausa.Location = new System.Drawing.Point(25, 192);
-            this.btnPausa.Name = "btnPausa";
-            this.btnPausa.Size = new System.Drawing.Size(71, 29);
-            this.btnPausa.TabIndex = 3;
-            this.btnPausa.Text = "Pause";
-            this.btnPausa.UseVisualStyleBackColor = true;
             // 
             // btnPaso
             // 
@@ -425,14 +415,14 @@
             this.Column19,
             this.Column20,
             this.Column21});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCinta.EnableHeadersVisualStyles = false;
             this.dgvCinta.Location = new System.Drawing.Point(19, 145);
             this.dgvCinta.MultiSelect = false;
@@ -691,7 +681,6 @@
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Label lblEntrada;
         private System.Windows.Forms.TextBox txtCadena;
-        private System.Windows.Forms.Button btnPausa;
         private System.Windows.Forms.Button btnPaso;
         private System.Windows.Forms.GroupBox gBInformacion;
         private System.Windows.Forms.Label label2;

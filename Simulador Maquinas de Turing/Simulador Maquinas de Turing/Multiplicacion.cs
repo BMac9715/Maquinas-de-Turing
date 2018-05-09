@@ -366,9 +366,9 @@ namespace Simulador_Maquinas_de_Turing
                     cabezal.Estado = 15;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = '*';
-                    cabezal.Direccion = 0;
-                    cabezal.Estado = 14;
+                    cabezal.NuevoCaracter = 'β';
+                    cabezal.Direccion = 1;
+                    cabezal.Estado = 16;
                     break;
                 default:
                     error = true;
