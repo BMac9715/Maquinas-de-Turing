@@ -9,7 +9,12 @@ namespace Simulador_Maquinas_de_Turing
     public class MaquinaTuring
     {
         public Cabezal main;
+
         public Palindromos p;
+        public CopiaPatrones copy;
+        public Multiplicacion mult;
+        public Suma sum;
+        public Resta resta;
 
         public MaquinaTuring()
         {
@@ -31,6 +36,10 @@ namespace Simulador_Maquinas_de_Turing
                 {"q10",   "q10,a,L", "q10,b,L", "q10,c,L", "q0,β,R" },
                 {"* q11",      "-",      "-",      "-",         "-" }
             });
+            copy = new CopiaPatrones(new string[,] { });
+            mult = new Multiplicacion(new string[,] { });
+            sum = new Suma(new string[,] { });
+            resta = new Resta(new string[,] { });
         }
 
         public int CalcularCadena(string cadena, int maquina)
