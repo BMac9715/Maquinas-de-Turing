@@ -18,7 +18,7 @@ namespace Simulador_Maquinas_de_Turing
             this.transiciones = tablaDeTransiciones;
             this.error = false;
             this.finalizado = false;
-            this.cabezal = null;
+            this.cabezal = new Cabezal();
         }
 
         public string[,] Transiciones { get => transiciones; set => transiciones = value; }
@@ -26,6 +26,7 @@ namespace Simulador_Maquinas_de_Turing
         public bool Error { get => error; set => error = value; }
 
         public Cabezal Cabezal { get => cabezal; set => cabezal = value; }
+        public bool Finalizado { get => finalizado; set => finalizado = value; }
 
         /// <summary>
         /// Ejecuta un movimiento en la maquina de turing
@@ -61,22 +62,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 1;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 2;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 3;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 11;
                     break;
@@ -97,22 +98,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 11;
                     break;
@@ -132,22 +133,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 11;
                     break;
@@ -167,22 +168,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 11;
                     break;
@@ -202,22 +203,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 4;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 7;
                     break;
@@ -237,22 +238,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 5;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 8;
                     break;
@@ -272,22 +273,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 6;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 9;
                     break;
@@ -306,7 +307,7 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
@@ -326,7 +327,7 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "b":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
@@ -346,7 +347,7 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "c":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
@@ -365,22 +366,22 @@ namespace Simulador_Maquinas_de_Turing
             switch (caracter)
             {
                 case "a":
-                    cabezal.NuevoCaracter = "a";
+                    cabezal.NuevoCaracter = 'a';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
                 case "b":
-                    cabezal.NuevoCaracter = "b";
+                    cabezal.NuevoCaracter = 'b';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
                 case "c":
-                    cabezal.NuevoCaracter = "c";
+                    cabezal.NuevoCaracter = 'c';
                     cabezal.Direccion = 0;
                     cabezal.Estado = 10;
                     break;
                 case "β":
-                    cabezal.NuevoCaracter = "β";
+                    cabezal.NuevoCaracter = 'β';
                     cabezal.Direccion = 1;
                     cabezal.Estado = 0;
                     break;

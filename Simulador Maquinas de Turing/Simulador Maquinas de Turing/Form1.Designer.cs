@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gBControl = new System.Windows.Forms.GroupBox();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.lblFast = new System.Windows.Forms.Label();
+            this.lblSlow = new System.Windows.Forms.Label();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
@@ -49,56 +55,42 @@
             this.rbtnPalindromos = new System.Windows.Forms.RadioButton();
             this.gBSalida = new System.Windows.Forms.GroupBox();
             this.gBCinta = new System.Windows.Forms.GroupBox();
-            this.pB13 = new System.Windows.Forms.PictureBox();
-            this.pB12 = new System.Windows.Forms.PictureBox();
-            this.pB11 = new System.Windows.Forms.PictureBox();
-            this.pB10 = new System.Windows.Forms.PictureBox();
-            this.pB9 = new System.Windows.Forms.PictureBox();
-            this.pB8 = new System.Windows.Forms.PictureBox();
-            this.pB7 = new System.Windows.Forms.PictureBox();
-            this.pB6 = new System.Windows.Forms.PictureBox();
-            this.pB5 = new System.Windows.Forms.PictureBox();
-            this.pB4 = new System.Windows.Forms.PictureBox();
-            this.pB3 = new System.Windows.Forms.PictureBox();
-            this.pB2 = new System.Windows.Forms.PictureBox();
             this.pBEstado = new System.Windows.Forms.PictureBox();
             this.pBCabezal = new System.Windows.Forms.PictureBox();
-            this.pB1 = new System.Windows.Forms.PictureBox();
             this.pBAceptacion = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.pB14 = new System.Windows.Forms.PictureBox();
-            this.pB15 = new System.Windows.Forms.PictureBox();
-            this.pB16 = new System.Windows.Forms.PictureBox();
-            this.pB17 = new System.Windows.Forms.PictureBox();
-            this.btnReiniciar = new System.Windows.Forms.Button();
-            this.lblSlow = new System.Windows.Forms.Label();
-            this.lblFast = new System.Windows.Forms.Label();
-            this.btnIngresar = new System.Windows.Forms.Button();
+            this.dgvCinta = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerEjecucion = new System.Windows.Forms.Timer(this.components);
             this.gBControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.gBInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gBCinta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pB13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCabezal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBAceptacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCinta)).BeginInit();
             this.SuspendLayout();
             // 
             // gBControl
@@ -120,6 +112,43 @@
             this.gBControl.TabIndex = 16;
             this.gBControl.TabStop = false;
             this.gBControl.Text = "Entrada - Control";
+            // 
+            // btnIngresar
+            // 
+            this.btnIngresar.Location = new System.Drawing.Point(281, 19);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(75, 36);
+            this.btnIngresar.TabIndex = 11;
+            this.btnIngresar.Text = "Cargar Cadena";
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // lblFast
+            // 
+            this.lblFast.AutoSize = true;
+            this.lblFast.Location = new System.Drawing.Point(321, 100);
+            this.lblFast.Name = "lblFast";
+            this.lblFast.Size = new System.Drawing.Size(41, 13);
+            this.lblFast.TabIndex = 10;
+            this.lblFast.Text = "Rápido";
+            // 
+            // lblSlow
+            // 
+            this.lblSlow.AutoSize = true;
+            this.lblSlow.Location = new System.Drawing.Point(22, 100);
+            this.lblSlow.Name = "lblSlow";
+            this.lblSlow.Size = new System.Drawing.Size(34, 13);
+            this.lblSlow.TabIndex = 9;
+            this.lblSlow.Text = "Lento";
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(255, 157);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(71, 29);
+            this.btnReiniciar.TabIndex = 8;
+            this.btnReiniciar.Text = "Reset";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
             // 
             // trackBar1
             // 
@@ -147,6 +176,7 @@
             this.btnRun.TabIndex = 2;
             this.btnRun.Text = "Start";
             this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // lblEntrada
             // 
@@ -311,156 +341,20 @@
             // 
             // gBCinta
             // 
-            this.gBCinta.Controls.Add(this.pB17);
-            this.gBCinta.Controls.Add(this.pB16);
-            this.gBCinta.Controls.Add(this.pB15);
-            this.gBCinta.Controls.Add(this.pB14);
-            this.gBCinta.Controls.Add(this.pB13);
-            this.gBCinta.Controls.Add(this.pB12);
-            this.gBCinta.Controls.Add(this.pB11);
-            this.gBCinta.Controls.Add(this.pB10);
-            this.gBCinta.Controls.Add(this.pB9);
-            this.gBCinta.Controls.Add(this.pB8);
-            this.gBCinta.Controls.Add(this.pB7);
-            this.gBCinta.Controls.Add(this.pB6);
-            this.gBCinta.Controls.Add(this.pB5);
-            this.gBCinta.Controls.Add(this.pB4);
-            this.gBCinta.Controls.Add(this.pB3);
-            this.gBCinta.Controls.Add(this.pB2);
+            this.gBCinta.Controls.Add(this.dgvCinta);
             this.gBCinta.Controls.Add(this.pBEstado);
             this.gBCinta.Controls.Add(this.pBCabezal);
-            this.gBCinta.Controls.Add(this.pB1);
             this.gBCinta.Controls.Add(this.pBAceptacion);
-            this.gBCinta.Location = new System.Drawing.Point(12, 45);
+            this.gBCinta.Location = new System.Drawing.Point(23, 45);
             this.gBCinta.Name = "gBCinta";
-            this.gBCinta.Size = new System.Drawing.Size(897, 211);
+            this.gBCinta.Size = new System.Drawing.Size(881, 211);
             this.gBCinta.TabIndex = 4;
             this.gBCinta.TabStop = false;
             this.gBCinta.Text = "Cinta";
             // 
-            // pB13
-            // 
-            this.pB13.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB13.Location = new System.Drawing.Point(628, 143);
-            this.pB13.Name = "pB13";
-            this.pB13.Size = new System.Drawing.Size(50, 50);
-            this.pB13.TabIndex = 26;
-            this.pB13.TabStop = false;
-            // 
-            // pB12
-            // 
-            this.pB12.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB12.Location = new System.Drawing.Point(577, 143);
-            this.pB12.Name = "pB12";
-            this.pB12.Size = new System.Drawing.Size(50, 50);
-            this.pB12.TabIndex = 25;
-            this.pB12.TabStop = false;
-            // 
-            // pB11
-            // 
-            this.pB11.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB11.Location = new System.Drawing.Point(526, 143);
-            this.pB11.Name = "pB11";
-            this.pB11.Size = new System.Drawing.Size(50, 50);
-            this.pB11.TabIndex = 24;
-            this.pB11.TabStop = false;
-            // 
-            // pB10
-            // 
-            this.pB10.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB10.Location = new System.Drawing.Point(475, 143);
-            this.pB10.Name = "pB10";
-            this.pB10.Size = new System.Drawing.Size(50, 50);
-            this.pB10.TabIndex = 23;
-            this.pB10.TabStop = false;
-            // 
-            // pB9
-            // 
-            this.pB9.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB9.Location = new System.Drawing.Point(424, 143);
-            this.pB9.Name = "pB9";
-            this.pB9.Size = new System.Drawing.Size(50, 50);
-            this.pB9.TabIndex = 22;
-            this.pB9.TabStop = false;
-            // 
-            // pB8
-            // 
-            this.pB8.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB8.Location = new System.Drawing.Point(373, 143);
-            this.pB8.Name = "pB8";
-            this.pB8.Size = new System.Drawing.Size(50, 50);
-            this.pB8.TabIndex = 21;
-            this.pB8.TabStop = false;
-            // 
-            // pB7
-            // 
-            this.pB7.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB7.Location = new System.Drawing.Point(322, 143);
-            this.pB7.Name = "pB7";
-            this.pB7.Size = new System.Drawing.Size(50, 50);
-            this.pB7.TabIndex = 20;
-            this.pB7.TabStop = false;
-            // 
-            // pB6
-            // 
-            this.pB6.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB6.Location = new System.Drawing.Point(271, 143);
-            this.pB6.Name = "pB6";
-            this.pB6.Size = new System.Drawing.Size(50, 50);
-            this.pB6.TabIndex = 19;
-            this.pB6.TabStop = false;
-            // 
-            // pB5
-            // 
-            this.pB5.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB5.Location = new System.Drawing.Point(220, 143);
-            this.pB5.Name = "pB5";
-            this.pB5.Size = new System.Drawing.Size(50, 50);
-            this.pB5.TabIndex = 18;
-            this.pB5.TabStop = false;
-            // 
-            // pB4
-            // 
-            this.pB4.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB4.Location = new System.Drawing.Point(169, 143);
-            this.pB4.Name = "pB4";
-            this.pB4.Size = new System.Drawing.Size(50, 50);
-            this.pB4.TabIndex = 17;
-            this.pB4.TabStop = false;
-            // 
-            // pB3
-            // 
-            this.pB3.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB3.Location = new System.Drawing.Point(118, 143);
-            this.pB3.Name = "pB3";
-            this.pB3.Size = new System.Drawing.Size(50, 50);
-            this.pB3.TabIndex = 14;
-            this.pB3.TabStop = false;
-            // 
-            // pB2
-            // 
-            this.pB2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB2.Location = new System.Drawing.Point(67, 143);
-            this.pB2.Name = "pB2";
-            this.pB2.Size = new System.Drawing.Size(50, 50);
-            this.pB2.TabIndex = 13;
-            this.pB2.TabStop = false;
-            // 
             // pBEstado
             // 
-            this.pBEstado.Location = new System.Drawing.Point(831, 19);
+            this.pBEstado.Location = new System.Drawing.Point(810, 35);
             this.pBEstado.Name = "pBEstado";
             this.pBEstado.Size = new System.Drawing.Size(50, 50);
             this.pBEstado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -469,29 +363,19 @@
             // 
             // pBCabezal
             // 
-            this.pBCabezal.Location = new System.Drawing.Point(19, 93);
+            this.pBCabezal.Location = new System.Drawing.Point(22, 100);
             this.pBCabezal.Name = "pBCabezal";
-            this.pBCabezal.Size = new System.Drawing.Size(44, 44);
+            this.pBCabezal.Size = new System.Drawing.Size(36, 36);
             this.pBCabezal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBCabezal.TabIndex = 9;
             this.pBCabezal.TabStop = false;
-            // 
-            // pB1
-            // 
-            this.pB1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB1.Location = new System.Drawing.Point(16, 143);
-            this.pB1.Name = "pB1";
-            this.pB1.Size = new System.Drawing.Size(50, 50);
-            this.pB1.TabIndex = 2;
-            this.pB1.TabStop = false;
             // 
             // pBAceptacion
             // 
             this.pBAceptacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pBAceptacion.Location = new System.Drawing.Point(3, 16);
             this.pBAceptacion.Name = "pBAceptacion";
-            this.pBAceptacion.Size = new System.Drawing.Size(891, 192);
+            this.pBAceptacion.Size = new System.Drawing.Size(875, 192);
             this.pBAceptacion.TabIndex = 12;
             this.pBAceptacion.TabStop = false;
             // 
@@ -505,82 +389,228 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Simulador de Maquinas de Turing";
             // 
-            // pB14
+            // dgvCinta
             // 
-            this.pB14.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB14.Location = new System.Drawing.Point(679, 143);
-            this.pB14.Name = "pB14";
-            this.pB14.Size = new System.Drawing.Size(50, 50);
-            this.pB14.TabIndex = 28;
-            this.pB14.TabStop = false;
+            this.dgvCinta.AllowUserToAddRows = false;
+            this.dgvCinta.AllowUserToDeleteRows = false;
+            this.dgvCinta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCinta.ColumnHeadersVisible = false;
+            this.dgvCinta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20,
+            this.Column21});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCinta.EnableHeadersVisualStyles = false;
+            this.dgvCinta.Location = new System.Drawing.Point(19, 145);
+            this.dgvCinta.MultiSelect = false;
+            this.dgvCinta.Name = "dgvCinta";
+            this.dgvCinta.ReadOnly = true;
+            this.dgvCinta.RowHeadersVisible = false;
+            this.dgvCinta.RowHeadersWidth = 75;
+            this.dgvCinta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCinta.RowTemplate.Height = 40;
+            this.dgvCinta.RowTemplate.ReadOnly = true;
+            this.dgvCinta.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCinta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvCinta.Size = new System.Drawing.Size(843, 43);
+            this.dgvCinta.TabIndex = 13;
             // 
-            // pB15
+            // Column1
             // 
-            this.pB15.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB15.Location = new System.Drawing.Point(730, 143);
-            this.pB15.Name = "pB15";
-            this.pB15.Size = new System.Drawing.Size(50, 50);
-            this.pB15.TabIndex = 29;
-            this.pB15.TabStop = false;
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 40;
             // 
-            // pB16
+            // Column2
             // 
-            this.pB16.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB16.Location = new System.Drawing.Point(781, 143);
-            this.pB16.Name = "pB16";
-            this.pB16.Size = new System.Drawing.Size(50, 50);
-            this.pB16.TabIndex = 30;
-            this.pB16.TabStop = false;
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.Width = 40;
             // 
-            // pB17
+            // Column3
             // 
-            this.pB17.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pB17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pB17.Location = new System.Drawing.Point(832, 143);
-            this.pB17.Name = "pB17";
-            this.pB17.Size = new System.Drawing.Size(50, 50);
-            this.pB17.TabIndex = 31;
-            this.pB17.TabStop = false;
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column3.Width = 40;
             // 
-            // btnReiniciar
+            // Column4
             // 
-            this.btnReiniciar.Location = new System.Drawing.Point(255, 157);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(71, 29);
-            this.btnReiniciar.TabIndex = 8;
-            this.btnReiniciar.Text = "Reset";
-            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column4.Width = 40;
             // 
-            // lblSlow
+            // Column5
             // 
-            this.lblSlow.AutoSize = true;
-            this.lblSlow.Location = new System.Drawing.Point(22, 100);
-            this.lblSlow.Name = "lblSlow";
-            this.lblSlow.Size = new System.Drawing.Size(34, 13);
-            this.lblSlow.TabIndex = 9;
-            this.lblSlow.Text = "Lento";
+            this.Column5.HeaderText = "Column5";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column5.Width = 40;
             // 
-            // lblFast
+            // Column6
             // 
-            this.lblFast.AutoSize = true;
-            this.lblFast.Location = new System.Drawing.Point(321, 100);
-            this.lblFast.Name = "lblFast";
-            this.lblFast.Size = new System.Drawing.Size(41, 13);
-            this.lblFast.TabIndex = 10;
-            this.lblFast.Text = "Rápido";
+            this.Column6.HeaderText = "Column6";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column6.Width = 40;
             // 
-            // btnIngresar
+            // Column7
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(281, 19);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 36);
-            this.btnIngresar.TabIndex = 11;
-            this.btnIngresar.Text = "Cargar Cadena";
-            this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.Column7.HeaderText = "Column7";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column7.Width = 40;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Column8";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column8.Width = 40;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Column9";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column9.Width = 40;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Column10";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column10.Width = 40;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Column11";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column11.Width = 40;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Column12";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column12.Width = 40;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Column13";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column13.Width = 40;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Column14";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column14.Width = 40;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Column15";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column15.Width = 40;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Column16";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column16.Width = 40;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Column17";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column17.Width = 40;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Column18";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column18.Width = 40;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Column19";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column19.Width = 40;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Column20";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column20.Width = 40;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "Column21";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column21.Width = 40;
+            // 
+            // timerEjecucion
+            // 
+            this.timerEjecucion.Tick += new System.EventHandler(this.timerEjecucion_Tick);
             // 
             // Form1
             // 
@@ -602,26 +632,10 @@
             this.gBInformacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gBCinta.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pB13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCabezal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBAceptacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCinta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,31 +664,37 @@
         private System.Windows.Forms.RadioButton rbtnPalindromos;
         private System.Windows.Forms.GroupBox gBSalida;
         private System.Windows.Forms.GroupBox gBCinta;
-        private System.Windows.Forms.PictureBox pB12;
-        private System.Windows.Forms.PictureBox pB11;
-        private System.Windows.Forms.PictureBox pB10;
-        private System.Windows.Forms.PictureBox pB9;
-        private System.Windows.Forms.PictureBox pB8;
-        private System.Windows.Forms.PictureBox pB7;
-        private System.Windows.Forms.PictureBox pB6;
-        private System.Windows.Forms.PictureBox pB5;
-        private System.Windows.Forms.PictureBox pB4;
-        private System.Windows.Forms.PictureBox pB3;
-        private System.Windows.Forms.PictureBox pB2;
         private System.Windows.Forms.PictureBox pBEstado;
         private System.Windows.Forms.PictureBox pBCabezal;
-        private System.Windows.Forms.PictureBox pB1;
         private System.Windows.Forms.PictureBox pBAceptacion;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.PictureBox pB13;
-        private System.Windows.Forms.PictureBox pB16;
-        private System.Windows.Forms.PictureBox pB15;
-        private System.Windows.Forms.PictureBox pB14;
-        private System.Windows.Forms.PictureBox pB17;
         private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.Label lblFast;
         private System.Windows.Forms.Label lblSlow;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.DataGridView dgvCinta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.Timer timerEjecucion;
     }
 }
 

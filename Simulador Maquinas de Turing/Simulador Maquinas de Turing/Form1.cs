@@ -13,51 +13,36 @@ namespace Simulador_Maquinas_de_Turing
     public partial class Form1 : Form
     {
         MaquinaTuring maquinas;
+        int posicionCabezal;
+        int inicio;
+        int fin;
+        string cadenaInicial;
+        string cinta;
 
         public Form1()
         {
             InitializeComponent();
             IniciarPicturesBox();
-            DeshabilitarBotones();
+            DeshabilitarBotones();      
             trackBar1.Value = 2;
-
+            dgvCinta.Rows.Add();
+            IniciarCinta();
+            rbtnPalindromos.Checked = true;
 
             maquinas = new MaquinaTuring();
+            posicionCabezal = 0;
+            inicio = 0;
+            fin = 21;
         }
 
         private void IniciarPicturesBox()
         {
-            Bitmap b = new Bitmap(pB1.Width, pB1.Height);
-            pB1.Image = (Image)b;
-            pB2.Image = b;
-            pB3.Image = b;
-            pB4.Image = b;
-            pB5.Image = b;
-            pB6.Image = b;
-            pB7.Image = b;
-            pB8.Image = b;
-            pB9.Image = b;
-            pB10.Image = b;
-            pB11.Image = b;
-            pB12.Image = b;
-            pB13.Image = b;
-            pB14.Image = b;
-            pB15.Image = b;
-            pB16.Image = b;
-            pB17.Image = b;
-
-            Graphics g = Graphics.FromImage(b);
-            g.DrawString("β", new Font("Arial", 25), Brushes.Black, new Point(6, 4));
-
             //PictureBox de estado
             pBCabezal.Image = Properties.Resources.cabezal;
             //PictureBox del cabezal
             pBEstado.Image = Properties.Resources.circulo_amarillo;
-            g = Graphics.FromImage(pBEstado.Image);
+            Graphics g = Graphics.FromImage(pBEstado.Image);
             g.DrawString("q0", new Font("Arial", 25), Brushes.Black, new Point(10, 12));
-
-            //Fondo del PictureBox Inicial
-            pB1.BackColor = Color.LightGreen;
             
         }
 
@@ -67,6 +52,20 @@ namespace Simulador_Maquinas_de_Turing
             btnPausa.Enabled = false;
             btnReiniciar.Enabled = false;
             btnPaso.Enabled = false;
+        }
+
+        private void ActivarBotones()
+        {
+            btnRun.Enabled = true;
+            btnPaso.Enabled = true;
+        }
+
+        private void IniciarCinta()
+        {
+            for(int i = 0; i < dgvCinta.ColumnCount; i++)
+            {
+                dgvCinta[i,0].Value = "β";
+            }
         }
 
         private void MoverCabezal(int direccion)
@@ -79,13 +78,13 @@ namespace Simulador_Maquinas_de_Turing
                 case 0:
                     if(pBCabezal.Location.X > 19)
                     {
-                        pBCabezal.Location = new Point(pBCabezal.Location.X - 51, pBCabezal.Location.Y);
+                        pBCabezal.Location = new Point(pBCabezal.Location.X - 40, pBCabezal.Location.Y);
                     }       
                     break;
                 case 1:
                     if(pBCabezal.Location.X < 835)
                     {
-                        pBCabezal.Location = new Point(pBCabezal.Location.X + 51, pBCabezal.Location.Y);
+                        pBCabezal.Location = new Point(pBCabezal.Location.X + 40, pBCabezal.Location.Y);
                     }                 
                     break;
             }
@@ -93,11 +92,45 @@ namespace Simulador_Maquinas_de_Turing
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            cinta = string.Empty;
             string cadena = txtCadena.Text;
+            int maquina = 0;
 
-            if(cadena == "")
+            if(rbtnPalindromos.Checked == true) { maquina = 1; }
+            else if (rbtnCopiar.Checked == true) { maquina = 2; }
+            else if (rbtnMult.Checked == true) { maquina = 3; }
+            else if (rbtnSuma.Checked == true) { maquina = 4; }
+            else if (rbtnResta.Checked == true) { maquina = 5; }
+
+            if (cadena != "")
             {
-                maquinas.CalcularCadena(1, cadena);   
+                int longitud = maquinas.CalcularCadena(cadena, maquina);
+
+                if (cadena.Length <= 20)
+                {
+                    cinta = "β" + cadena;
+                    for (int i = cinta.Length; i <= 21; i++)
+                    {
+                            cinta += "β";
+                    }          
+                }
+                else {
+                    cinta = "β"+ cadena;
+                    inicio = 0;
+                    fin = 21;
+                }
+
+                //Establecer posicion del cabezal
+                pBCabezal.Location = new Point(62, pBCabezal.Location.Y);
+
+                //Ingresar cadena a la cinta
+                PintarCinta(cinta);
+
+                //Reacomodamiento del cabezal
+                posicionCabezal = 1;
+                dgvCinta[posicionCabezal, 0].Style.BackColor = Color.LightGreen;
+
+                ActivarBotones();
             }
             else
             {
@@ -107,6 +140,34 @@ namespace Simulador_Maquinas_de_Turing
         }
 
         private void PintarCinta(string cinta)
+        {
+            var cintaAux = cinta.ToCharArray();
+
+            for(int i = inicio; i < fin; i++)
+            {
+                dgvCinta[i, 0].Value = cintaAux[i].ToString();
+            }
+      
+        }
+
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            int velocidad = trackBar1.Value;
+            switch (velocidad)
+            {
+                case 0: timerEjecucion.Interval = 2500; break;
+                case 1: timerEjecucion.Interval = 2000; break;
+                case 2: timerEjecucion.Interval = 1500; break;
+                case 3: timerEjecucion.Interval = 1000; break;
+                case 4: timerEjecucion.Interval = 500; break;
+            }
+
+            timerEjecucion.Start();
+
+            btnPausa.Enabled = true;
+        }
+
+        private void timerEjecucion_Tick(object sender, EventArgs e)
         {
 
         }
