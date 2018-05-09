@@ -34,6 +34,10 @@ namespace Simulador_Maquinas_de_Turing
             pasos = 0;
             maquina = 0;
             primero = false;
+
+            txtInformacion.Text = "Máquina de Turing que reconoce una " +
+                                   "cadena de a, b o c's y verifica si " +
+                                   "la cadena es un palíndromo.";
         }
 
         private void IniciarPicturesBox()
@@ -316,6 +320,41 @@ namespace Simulador_Maquinas_de_Turing
             //Reescribir el datagrid
             dgvCinta.Size = new Size(843, 43);
             
+        }
+
+        private void rbtnPalindromos_Click(object sender, EventArgs e)
+        {
+            txtInformacion.Text = "Máquina de Turing que reconoce una " +
+                                   "\ncadena de a, b o c's y verifica si" +
+                                   "\nla cadena es un palíndromo.";
+        }
+
+        private void rbtnCopiar_Click(object sender, EventArgs e)
+        {
+            txtInformacion.Text = "Máquina de Turing que reconoce patrones" +
+                                  " de a, b o c's y lo copia de manera idéntica.";                  
+        }
+
+        private void rbtnMult_Click(object sender, EventArgs e)
+        {
+            txtInformacion.Text = "Máquina de Turing que reconoce una cadena " +
+                                  "en código unario y realiza la respectiva " +
+                                  "multiplicación. El simbolo es el ' 1 ' y como " +
+                                  "signo de multiplicación se usa el ' * '";
+        }
+
+        private void rbtnSuma_Click(object sender, EventArgs e)
+        {
+            txtInformacion.Text = "Máquina de Turing que reconoce una cadena " +
+                                   "en código unario y realiza la suma respectiva. " +
+                                   "El simbolo es el ' 1 ' y como signo de suma se usa el ' + '";
+        }
+
+        private void rbtnResta_Click(object sender, EventArgs e)
+        {
+            txtInformacion.Text = "Máquina de Turing que reconoce una cadena " +
+                                   "en código unario y realiza la resta respectiva. " +
+                                   "El simbolo es el ' 1 ' y como signo de resta se usa el ' - '";
         }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gBControl = new System.Windows.Forms.GroupBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblFast = new System.Windows.Forms.Label();
@@ -42,9 +42,7 @@
             this.txtCadena = new System.Windows.Forms.TextBox();
             this.btnPaso = new System.Windows.Forms.Button();
             this.gBInformacion = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtInformacion = new System.Windows.Forms.TextBox();
             this.lblMaquinas = new System.Windows.Forms.Label();
             this.rbtnCopiar = new System.Windows.Forms.RadioButton();
             this.lblInformacion = new System.Windows.Forms.Label();
@@ -86,7 +84,6 @@
             this.gBControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.gBInformacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gBSalida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).BeginInit();
             this.gBCinta.SuspendLayout();
@@ -106,9 +103,9 @@
             this.gBControl.Controls.Add(this.lblEntrada);
             this.gBControl.Controls.Add(this.txtCadena);
             this.gBControl.Controls.Add(this.btnPaso);
-            this.gBControl.Location = new System.Drawing.Point(537, 321);
+            this.gBControl.Location = new System.Drawing.Point(537, 324);
             this.gBControl.Name = "gBControl";
-            this.gBControl.Size = new System.Drawing.Size(375, 249);
+            this.gBControl.Size = new System.Drawing.Size(375, 194);
             this.gBControl.TabIndex = 16;
             this.gBControl.TabStop = false;
             this.gBControl.Text = "Entrada - Control";
@@ -143,7 +140,7 @@
             // 
             // btnReiniciar
             // 
-            this.btnReiniciar.Location = new System.Drawing.Point(255, 157);
+            this.btnReiniciar.Location = new System.Drawing.Point(271, 146);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(71, 29);
             this.btnReiniciar.TabIndex = 8;
@@ -171,7 +168,7 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(25, 157);
+            this.btnRun.Location = new System.Drawing.Point(36, 146);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(71, 29);
             this.btnRun.TabIndex = 2;
@@ -197,7 +194,7 @@
             // 
             // btnPaso
             // 
-            this.btnPaso.Location = new System.Drawing.Point(137, 157);
+            this.btnPaso.Location = new System.Drawing.Point(155, 146);
             this.btnPaso.Name = "btnPaso";
             this.btnPaso.Size = new System.Drawing.Size(75, 29);
             this.btnPaso.TabIndex = 4;
@@ -207,9 +204,7 @@
             // 
             // gBInformacion
             // 
-            this.gBInformacion.Controls.Add(this.label2);
-            this.gBInformacion.Controls.Add(this.textBox2);
-            this.gBInformacion.Controls.Add(this.dataGridView1);
+            this.gBInformacion.Controls.Add(this.txtInformacion);
             this.gBInformacion.Controls.Add(this.lblMaquinas);
             this.gBInformacion.Controls.Add(this.rbtnCopiar);
             this.gBInformacion.Controls.Add(this.lblInformacion);
@@ -219,36 +214,19 @@
             this.gBInformacion.Controls.Add(this.rbtnPalindromos);
             this.gBInformacion.Location = new System.Drawing.Point(21, 178);
             this.gBInformacion.Name = "gBInformacion";
-            this.gBInformacion.Size = new System.Drawing.Size(507, 392);
+            this.gBInformacion.Size = new System.Drawing.Size(507, 190);
             this.gBInformacion.TabIndex = 17;
             this.gBInformacion.TabStop = false;
             this.gBInformacion.Text = "Maquinas y Caracteristicas";
             // 
-            // label2
+            // txtInformacion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Tabla de Trancisiones";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(266, 49);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(215, 109);
-            this.textBox2.TabIndex = 17;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 190);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(460, 184);
-            this.dataGridView1.TabIndex = 16;
+            this.txtInformacion.Location = new System.Drawing.Point(266, 49);
+            this.txtInformacion.Multiline = true;
+            this.txtInformacion.Name = "txtInformacion";
+            this.txtInformacion.ReadOnly = true;
+            this.txtInformacion.Size = new System.Drawing.Size(215, 109);
+            this.txtInformacion.TabIndex = 17;
             // 
             // lblMaquinas
             // 
@@ -269,6 +247,7 @@
             this.rbtnCopiar.TabStop = true;
             this.rbtnCopiar.Text = "Copia de patrones";
             this.rbtnCopiar.UseVisualStyleBackColor = true;
+            this.rbtnCopiar.Click += new System.EventHandler(this.rbtnCopiar_Click);
             // 
             // lblInformacion
             // 
@@ -289,6 +268,7 @@
             this.rbtnSuma.TabStop = true;
             this.rbtnSuma.Text = "Suma en código unario";
             this.rbtnSuma.UseVisualStyleBackColor = true;
+            this.rbtnSuma.Click += new System.EventHandler(this.rbtnSuma_Click);
             // 
             // rbtnResta
             // 
@@ -300,6 +280,7 @@
             this.rbtnResta.TabStop = true;
             this.rbtnResta.Text = "Resta en código unario";
             this.rbtnResta.UseVisualStyleBackColor = true;
+            this.rbtnResta.Click += new System.EventHandler(this.rbtnResta_Click);
             // 
             // rbtnMult
             // 
@@ -311,6 +292,7 @@
             this.rbtnMult.TabStop = true;
             this.rbtnMult.Text = "Multiplicación en código unario";
             this.rbtnMult.UseVisualStyleBackColor = true;
+            this.rbtnMult.Click += new System.EventHandler(this.rbtnMult_Click);
             // 
             // rbtnPalindromos
             // 
@@ -322,6 +304,7 @@
             this.rbtnPalindromos.TabStop = true;
             this.rbtnPalindromos.Text = "Reconocedor de cadenas palindromas";
             this.rbtnPalindromos.UseVisualStyleBackColor = true;
+            this.rbtnPalindromos.Click += new System.EventHandler(this.rbtnPalindromos_Click);
             // 
             // gBSalida
             // 
@@ -415,14 +398,14 @@
             this.Column19,
             this.Column20,
             this.Column21});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCinta.EnableHeadersVisualStyles = false;
             this.dgvCinta.Location = new System.Drawing.Point(18, 44);
             this.dgvCinta.MultiSelect = false;
@@ -633,7 +616,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 581);
+            this.ClientSize = new System.Drawing.Size(924, 529);
             this.Controls.Add(this.gBCinta);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.gBSalida);
@@ -641,13 +624,12 @@
             this.Controls.Add(this.gBControl);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Simulador Maquinas de Turing";
             this.gBControl.ResumeLayout(false);
             this.gBControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.gBInformacion.ResumeLayout(false);
             this.gBInformacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gBSalida.ResumeLayout(false);
             this.gBSalida.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).EndInit();
@@ -669,9 +651,7 @@
         private System.Windows.Forms.TextBox txtCadena;
         private System.Windows.Forms.Button btnPaso;
         private System.Windows.Forms.GroupBox gBInformacion;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtInformacion;
         private System.Windows.Forms.Label lblMaquinas;
         private System.Windows.Forms.RadioButton rbtnCopiar;
         private System.Windows.Forms.Label lblInformacion;
