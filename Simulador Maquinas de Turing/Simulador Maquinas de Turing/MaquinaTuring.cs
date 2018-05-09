@@ -552,26 +552,202 @@ namespace Simulador_Maquinas_de_Turing
     
         private int CadenasCopiar(string cadena)
         {
-            return 0;
+            int i = 0;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial
+            copy.Cabezal.Posicion = i;
+            copy.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = copy.Cabezal.NuevoCaracter;
+            i++;
+
+            while (!copy.Error && !copy.Finalizado)
+            {
+                copy.Cabezal.NuevoCaracter = cinta[i];
+                copy.Cabezal.Posicion = i;
+                copy.Movimiento(cinta[i].ToString(), copy.Cabezal.Estado);
+                cinta[i] = copy.Cabezal.NuevoCaracter;
+
+                //Movimiento del cabezal
+                if (copy.Cabezal.Direccion == 0)
+                {
+                    if (i == 0)
+                    {
+                        cinta.Insert(0, 'β');
+                    }
+                    else
+                    {
+                        i--;
+                        copy.Cabezal.Posicion = i;
+                    }
+                }
+
+                if (copy.Cabezal.Direccion == 1)
+                {
+                    if (i == cinta.Count - 1)
+                    {
+                        cinta.Add('β');
+                    }
+
+                    i++;
+                    copy.Cabezal.Posicion = i;
+                }
+            }
+
+            copy.Finalizado = false;
+
+            return cinta.Count;
         }
 
         private int CadenasMult(string cadena)
         {
-            return 0;
+            int i = 0;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial
+            mult.Cabezal.Posicion = i;
+            mult.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = mult.Cabezal.NuevoCaracter;
+            i++;
+
+            while (!mult.Error && !mult.Finalizado)
+            {
+                mult.Cabezal.NuevoCaracter = cinta[i];
+                mult.Cabezal.Posicion = i;
+                mult.Movimiento(cinta[i].ToString(), mult.Cabezal.Estado);
+                cinta[i] = mult.Cabezal.NuevoCaracter;
+
+                //Movimiento del cabezal
+                if (mult.Cabezal.Direccion == 0)
+                {
+                    if (i == 0)
+                    {
+                        cinta.Insert(0, 'β');
+                    }
+                    else
+                    {
+                        i--;
+                        mult.Cabezal.Posicion = i;
+                    }
+                }
+
+                if (mult.Cabezal.Direccion == 1)
+                {
+                    if (i == cinta.Count - 1)
+                    {
+                        cinta.Add('β');
+                    }
+
+                    i++;
+                    mult.Cabezal.Posicion = i;
+                }
+            }
+
+            mult.Finalizado = false;
+
+            return cinta.Count;
         }
 
         private int CadenasSuma(string cadena)
         {
-            return 0;
+            int i = 0;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial
+            sum.Cabezal.Posicion = i;
+            sum.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = sum.Cabezal.NuevoCaracter;
+            i++;
+
+            while (!sum.Error && !sum.Finalizado)
+            {
+                sum.Cabezal.NuevoCaracter = cinta[i];
+                sum.Cabezal.Posicion = i;
+                sum.Movimiento(cinta[i].ToString(), sum.Cabezal.Estado);
+                cinta[i] = sum.Cabezal.NuevoCaracter;
+
+                //Movimiento del cabezal
+                if (sum.Cabezal.Direccion == 0)
+                {
+                    if (i == 0)
+                    {
+                        cinta.Insert(0, 'β');
+                    }
+                    else
+                    {
+                        i--;
+                        sum.Cabezal.Posicion = i;
+                    }
+                }
+
+                if (sum.Cabezal.Direccion == 1)
+                {
+                    if (i == cinta.Count - 1)
+                    {
+                        cinta.Add('β');
+                    }
+
+                    i++;
+                    sum.Cabezal.Posicion = i;
+                }
+            }
+
+            sum.Finalizado = false;
+
+            return cinta.Count;
         }
 
         private int CadenasResta(string cadena)
         {
-            return 0;
+            int i = 0;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial
+            resta.Cabezal.Posicion = i;
+            resta.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = resta.Cabezal.NuevoCaracter;
+            i++;
+
+            while (!resta.Error && !resta.Finalizado)
+            {
+                resta.Cabezal.NuevoCaracter = cinta[i];
+                resta.Cabezal.Posicion = i;
+                resta.Movimiento(cinta[i].ToString(), resta.Cabezal.Estado);
+                cinta[i] = resta.Cabezal.NuevoCaracter;
+
+                //Movimiento del cabezal
+                if (resta.Cabezal.Direccion == 0)
+                {
+                    if (i == 0)
+                    {
+                        cinta.Insert(0, 'β');
+                    }
+                    else
+                    {
+                        i--;
+                        resta.Cabezal.Posicion = i;
+                    }
+                }
+
+                if (resta.Cabezal.Direccion == 1)
+                {
+                    if (i == cinta.Count - 1)
+                    {
+                        cinta.Add('β');
+                    }
+
+                    i++;
+                    resta.Cabezal.Posicion = i;
+                }
+            }
+
+            resta.Finalizado = false;
+
+            return cinta.Count;
         }
 
-
         public bool Finalizado { get => finalizado; set => finalizado = value; }
+
         public bool Error { get => error; set => error = value; }
     }
 }

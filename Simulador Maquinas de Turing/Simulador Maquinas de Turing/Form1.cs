@@ -15,8 +15,6 @@ namespace Simulador_Maquinas_de_Turing
         MaquinaTuring maquinas;
         int pasos;
         int posicionCabezal;
-        int inicio;
-        int fin;
         int maquina;
         string cinta;
         bool primero;
@@ -34,8 +32,6 @@ namespace Simulador_Maquinas_de_Turing
             maquinas = new MaquinaTuring();
             posicionCabezal = 0;
             pasos = 0;
-            inicio = 0;
-            fin = 21;
             maquina = 0;
             primero = false;
         }
@@ -43,8 +39,6 @@ namespace Simulador_Maquinas_de_Turing
         private void IniciarPicturesBox()
         {
             //PictureBox de estado
-            pBCabezal.Image = Properties.Resources.cabezal;
-            //PictureBox del cabezal
             pBEstado.Image = Properties.Resources.circulo_amarillo;
             Graphics g = Graphics.FromImage(pBEstado.Image);
             g.DrawString("q0", new Font("Arial", 22), Brushes.Black, new Point(10, 12));
@@ -80,20 +74,12 @@ namespace Simulador_Maquinas_de_Turing
             switch (direccion)
             {
                 case 0:
-                    if(pBCabezal.Location.X > 19)
-                    {
-                        pBCabezal.Location = new Point(pBCabezal.Location.X - 40, pBCabezal.Location.Y);
                         dgvCinta[posicionCabezal + 1, 0].Style.BackColor = Color.White;
-                        dgvCinta[posicionCabezal, 0].Style.BackColor = Color.LightYellow;
-                    }       
+                        dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Cyan;
                     break;
                 case 1:
-                    if(pBCabezal.Location.X < 835)
-                    {
-                        pBCabezal.Location = new Point(pBCabezal.Location.X + 40, pBCabezal.Location.Y);
                         dgvCinta[posicionCabezal - 1, 0].Style.BackColor = Color.White;
-                        dgvCinta[posicionCabezal, 0].Style.BackColor = Color.LightYellow;
-                    }                 
+                        dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Cyan;
                     break;
             }
         }
@@ -116,29 +102,45 @@ namespace Simulador_Maquinas_de_Turing
                 maquinas.Error = false;
                 maquinas.Finalizado = false;
 
-                if (cadena.Length <= 20)
+                if (longitud <= 19)
                 {
-                    cinta = "β" + cadena;
+                    cinta = "ββ" + cadena;
                     for (int i = cinta.Length; i <= 21; i++)
                     {
                             cinta += "β";
                     }          
                 }
                 else {
-                    cinta = "β"+ cadena;
-                    inicio = 0;
-                    fin = 21;
-                }
+                    cinta = "ββ" + cadena;
 
-                //Establecer posicion del cabezal
-                pBCabezal.Location = new Point(62, pBCabezal.Location.Y);
+                    for (int i = cinta.Length; i <= longitud + 3; i++)
+                    {
+                        cinta += "β";
+                    }
+
+                    int columns = dgvCinta.ColumnCount;
+
+                    DataGridViewColumn columna;
+
+                    for(int i = columns + 1; i <= cinta.Length; i++)
+                    {
+                        columna = new DataGridViewColumn();
+                        columna.HeaderText = "Columna" + i;
+                        columna.CellTemplate = new DataGridViewTextBoxCell();
+                        columna.Width = 40;
+                        columna.Resizable = DataGridViewTriState.False;
+                        dgvCinta.Columns.Add(columna);
+                    }
+
+                    dgvCinta.Size = new Size(843, 60);
+                }
 
                 //Ingresar cadena a la cinta
                 PintarCinta(cinta);
 
                 //Reacomodamiento del cabezal
-                posicionCabezal = 1;
-                dgvCinta[posicionCabezal, 0].Style.BackColor = Color.LightYellow;
+                posicionCabezal = 2;
+                dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Cyan;
 
                 ActivarBotones();
 
@@ -155,7 +157,7 @@ namespace Simulador_Maquinas_de_Turing
         {
             var cintaAux = cinta.ToCharArray();
 
-            for(int i = inicio; i < fin; i++)
+            for(int i = 0; i < cinta.Length-1; i++)
             {
                 dgvCinta[i, 0].Value = cintaAux[i].ToString();
             }
@@ -174,11 +176,11 @@ namespace Simulador_Maquinas_de_Turing
             int velocidad = trackBar1.Value;
             switch (velocidad)
             {
-                case 0: timerEjecucion.Interval = 1500; break;
-                case 1: timerEjecucion.Interval = 1250; break;
-                case 2: timerEjecucion.Interval = 1000; break;
-                case 3: timerEjecucion.Interval = 500; break;
-                case 4: timerEjecucion.Interval = 250; break;
+                case 0: timerEjecucion.Interval = 1400; break;
+                case 1: timerEjecucion.Interval = 1200; break;
+                case 2: timerEjecucion.Interval = 900; break;
+                case 3: timerEjecucion.Interval = 400; break;
+                case 4: timerEjecucion.Interval = 100; break;
             }
 
             timerEjecucion.Start();
@@ -220,8 +222,6 @@ namespace Simulador_Maquinas_de_Turing
                 btnReiniciar.Enabled = true;
                 //PictureBox de aceptación
                 pBAceptacion.BackColor = Color.LightGreen;
-                lblAceptacion.Visible = true;
-                lblAceptacion.Text = "Estado: Aceptado";
                 MessageBox.Show("La cadena de entrada ha sido aceptada.!", "Información",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -231,8 +231,6 @@ namespace Simulador_Maquinas_de_Turing
             {
                 timerEjecucion.Stop();
                 btnReiniciar.Enabled = true;
-                lblAceptacion.Visible = true;
-                lblAceptacion.Text = "Estado: No Aceptado";
                 //PictureBox de aceptación
                 pBAceptacion.BackColor = Color.LightPink;
                 MessageBox.Show("La cadena no fue aceptada.!", "Error",
@@ -274,8 +272,6 @@ namespace Simulador_Maquinas_de_Turing
             {
                 btnPaso.Enabled = false;
                 btnReiniciar.Enabled = true;
-                lblAceptacion.Visible = true;
-                lblAceptacion.Text = "Estado: Aceptado";
                 //PictureBox de aceptación
                 pBAceptacion.BackColor = Color.LightGreen;
                 MessageBox.Show("La cadena de entrada ha sido aceptada.!", "Información",
@@ -287,8 +283,6 @@ namespace Simulador_Maquinas_de_Turing
             {
                 btnPaso.Enabled = false;
                 btnReiniciar.Enabled = true;
-                lblAceptacion.Visible = true;
-                lblAceptacion.Text = "Estado: No Aceptado";
                 pBAceptacion.BackColor = Color.LightPink;
                 MessageBox.Show("La cadena no fue aceptada.!", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -298,20 +292,30 @@ namespace Simulador_Maquinas_de_Turing
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
+            dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Empty;
+            //Quitar las columnas que se agregaron
+            int count = dgvCinta.Columns.Count;
+
+            for (int i = count-1; i >= 21; i--)
+            {
+                dgvCinta.Columns.RemoveAt(i);
+            }
+
             DeshabilitarBotones();
             btnIngresar.Enabled = true;
             txtCadena.Text = string.Empty;
             txtCadena.Enabled = true;
             IniciarCinta();
-            pBAceptacion.BackColor = Color.Empty;
-            pBCabezal.Location = new Point(22, pBCabezal.Location.Y);
-            dgvCinta[posicionCabezal, 0].Style.BackColor = Color.Empty;
+            pBAceptacion.BackColor = Color.Empty;    
             pasos = 0;
             lblNPasos.Text = pasos.ToString();
-            lblAceptacion.Visible = false;
             PintarEstado("0");
             maquinas = new MaquinaTuring();
             cinta = string.Empty;
+
+            //Reescribir el datagrid
+            dgvCinta.Size = new Size(843, 43);
+            
         }
     }
 }
