@@ -8,8 +8,8 @@ namespace Simulador_Maquinas_de_Turing
 {
     public class MaquinaTuring
     {
-        Cabezal main;
-        Palindromos p;
+        public Cabezal main;
+        public Palindromos p;
 
         public MaquinaTuring()
         {
@@ -44,6 +44,77 @@ namespace Simulador_Maquinas_de_Turing
                 case 5: return CadenasResta(cadena);
                 default: return 0;
             }
+        }
+
+        public string PrimerMovimiento(string cadena, int maquina, int pos)
+        {
+            int i = pos;
+            p.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            //Movimiento Inicial          
+            p.Movimiento(cinta[i].ToString(), 0);
+            cinta[i] = p.Cabezal.NuevoCaracter;
+            i++;
+            p.Cabezal.NuevoCaracter = cinta[i];
+            p.Cabezal.Posicion = i;
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach(var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            return result;
+        }
+
+        public string Movimiento(string cadena, int maquina, int pos)
+        {
+            int i = pos;
+            p.Cabezal.Posicion = i;
+            List<char> cinta = cadena.ToCharArray().ToList();
+
+            p.Cabezal.NuevoCaracter = cinta[i];
+            p.Cabezal.Posicion = i;
+            p.Movimiento(cinta[i].ToString(), p.Cabezal.Estado);
+            cinta[i] = p.Cabezal.NuevoCaracter;
+
+            //Movimiento del cabezal
+            if (p.Cabezal.Direccion == 0)
+            {
+                if (i == 0)
+                {
+                    cinta.Insert(0, 'β');
+                }
+                else
+                {
+                    i--;
+                    p.Cabezal.Posicion = i;
+                }
+            }
+
+            if (p.Cabezal.Direccion == 1)
+            {
+                if (i == cinta.Count - 1)
+                {
+                    cinta.Add('β');
+                }
+
+                i++;
+                p.Cabezal.Posicion = i;
+            }
+
+            //Escribir la cadena de salida
+            string result = string.Empty;
+
+            foreach (var element in cinta)
+            {
+                result += element.ToString();
+            }
+
+            return result;
         }
 
         private int CadenasPalindromos(string cadena)

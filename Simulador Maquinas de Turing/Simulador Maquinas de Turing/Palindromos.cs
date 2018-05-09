@@ -397,7 +397,7 @@ namespace Simulador_Maquinas_de_Turing
         /// <param name="caracter"></param>
         public void Q11(string caracter)
         {
-            finalizado = true;
+            this.finalizado = true;
         }
     }
 }

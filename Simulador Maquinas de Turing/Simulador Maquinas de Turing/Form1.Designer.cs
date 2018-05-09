@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gBControl = new System.Windows.Forms.GroupBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblFast = new System.Windows.Forms.Label();
@@ -82,10 +82,14 @@
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timerEjecucion = new System.Windows.Forms.Timer(this.components);
+            this.lblAceptacion = new System.Windows.Forms.Label();
+            this.lblPasos = new System.Windows.Forms.Label();
+            this.lblNPasos = new System.Windows.Forms.Label();
             this.gBControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.gBInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gBSalida.SuspendLayout();
             this.gBCinta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCabezal)).BeginInit();
@@ -211,6 +215,7 @@
             this.btnPaso.TabIndex = 4;
             this.btnPaso.Text = "Step";
             this.btnPaso.UseVisualStyleBackColor = true;
+            this.btnPaso.Click += new System.EventHandler(this.btnPaso_Click);
             // 
             // gBInformacion
             // 
@@ -332,6 +337,9 @@
             // 
             // gBSalida
             // 
+            this.gBSalida.Controls.Add(this.lblNPasos);
+            this.gBSalida.Controls.Add(this.lblPasos);
+            this.gBSalida.Controls.Add(this.lblAceptacion);
             this.gBSalida.Location = new System.Drawing.Point(537, 269);
             this.gBSalida.Name = "gBSalida";
             this.gBSalida.Size = new System.Drawing.Size(375, 128);
@@ -417,14 +425,14 @@
             this.Column19,
             this.Column20,
             this.Column21});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCinta.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCinta.EnableHeadersVisualStyles = false;
             this.dgvCinta.Location = new System.Drawing.Point(19, 145);
             this.dgvCinta.MultiSelect = false;
@@ -612,6 +620,38 @@
             // 
             this.timerEjecucion.Tick += new System.EventHandler(this.timerEjecucion_Tick);
             // 
+            // lblAceptacion
+            // 
+            this.lblAceptacion.AutoSize = true;
+            this.lblAceptacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAceptacion.Location = new System.Drawing.Point(18, 83);
+            this.lblAceptacion.Name = "lblAceptacion";
+            this.lblAceptacion.Size = new System.Drawing.Size(197, 22);
+            this.lblAceptacion.TabIndex = 1;
+            this.lblAceptacion.Text = "Estado: No aceptado";
+            this.lblAceptacion.Visible = false;
+            // 
+            // lblPasos
+            // 
+            this.lblPasos.AutoSize = true;
+            this.lblPasos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasos.Location = new System.Drawing.Point(19, 33);
+            this.lblPasos.Name = "lblPasos";
+            this.lblPasos.Size = new System.Drawing.Size(196, 25);
+            this.lblPasos.TabIndex = 14;
+            this.lblPasos.Text = "Numero de Pasos: ";
+            // 
+            // lblNPasos
+            // 
+            this.lblNPasos.AutoSize = true;
+            this.lblNPasos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNPasos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblNPasos.Location = new System.Drawing.Point(223, 34);
+            this.lblNPasos.Name = "lblNPasos";
+            this.lblNPasos.Size = new System.Drawing.Size(24, 26);
+            this.lblNPasos.TabIndex = 16;
+            this.lblNPasos.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,6 +671,8 @@
             this.gBInformacion.ResumeLayout(false);
             this.gBInformacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gBSalida.ResumeLayout(false);
+            this.gBSalida.PerformLayout();
             this.gBCinta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCabezal)).EndInit();
@@ -695,6 +737,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.Timer timerEjecucion;
+        private System.Windows.Forms.Label lblNPasos;
+        private System.Windows.Forms.Label lblPasos;
+        private System.Windows.Forms.Label lblAceptacion;
     }
 }
 
