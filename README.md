@@ -1,7 +1,7 @@
 
 # Simulador de máquinas de Turing.
 
-##Descripcion
+## Descripcion
 
 **Maquinas de Turing**
 Si lo vemos desde su raíz, una máquina de Turing es en realidad un modelo matemático que consiste en un autómata que es capaz 
@@ -21,7 +21,7 @@ y una tabla finita de instrucciones o tabla de acción.
 La máquina de Turing es considerada un autómata con la capacidad de reconocer lenguajes formales de acuerdo a la jerarquía de Chomsky, 
 razón por la cual es muy superior a otros autómatas como el autómata con pila o el autómata finito.
 
-##Acerca del proyecto
+## Acerca del proyecto
 
 El proyecto consistia en construir un software que fuera capaz de simular el funcionamiento de varias máquinas de Turing, estas
 máquinas son:
